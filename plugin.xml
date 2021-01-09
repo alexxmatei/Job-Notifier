@@ -23,5 +23,20 @@
    </extension>
    <extension
          point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="job_notifier.menus.sampleMenu"
+               label="Sample Menu"
+               mnemonic="M">
+            <command
+                  commandId="job_notifier.commands.sampleCommand"
+                  id="job_notifier.menus.sampleCommand"
+                  mnemonic="S"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
    </extension>
 </plugin>
