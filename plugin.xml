@@ -18,7 +18,7 @@
          point="org.eclipse.ui.handlers">
       <handler
             class="job_notifier.handlers.SampleHandler"
-            commandId="job_notifier.sampleCommand">
+            commandId="job_notifier.commands.sampleCommand">
       </handler>
    </extension>
    <extension
