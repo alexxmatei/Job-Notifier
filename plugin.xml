@@ -4,6 +4,15 @@
 >
    <extension
          point="org.eclipse.ui.commands">
+      <category
+            id="job_notifier.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="job_notifier.commands.category"
+            id="job_notifier.commands.sampleCommand"
+            name="Sample Command">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
