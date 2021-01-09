@@ -7,6 +7,6 @@ Bundle-Activator: job_notifier.Activator
 Bundle-Vendor: Matei Alexandru
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
-Bundle-RequiredExecutionEnvironment: JavaSE-15
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: Job.Notifier
 Bundle-ActivationPolicy: lazy
