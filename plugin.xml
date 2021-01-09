@@ -38,5 +38,19 @@
             </command>
          </menu>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="job_notifier.toolbars.sampleToolbar">
+            <command
+                  commandId="job_notifier.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  id="job_notifier.toolbars.sampleCommand"
+                  style="push"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
    </extension>
 </plugin>
