@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Job-Notifier
+Bundle-SymbolicName: Job-Notifier
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: job_notifier.Activator
+Bundle-Vendor: Matei Alexandru
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+Automatic-Module-Name: Job.Notifier
+Bundle-ActivationPolicy: lazy
