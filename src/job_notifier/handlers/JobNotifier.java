@@ -5,6 +5,7 @@ package job_notifier.handlers;
 
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
+import org.eclipse.ui.console.MessageConsoleStream;
 
 /**
  * @author Al
@@ -12,11 +13,26 @@ import org.eclipse.core.runtime.jobs.IJobChangeListener;
  */
 public class JobNotifier implements IJobChangeListener {
 
+	private MessageConsoleStream out;
+	
 	@Override
 	public void aboutToRun(IJobChangeEvent event) {
-		// TODO Auto-generated method stub
+
+		/* Debug start */
+		/*
+		 * Write to the main console of the development environment 
+		 * (not the console of the launched application)
+		 */
 		String jobName = event.getJob().getName();
 		System.out.println("Started job: " + jobName);
+		/* Debug end */
+
+		/*
+		 * Write to the Job-Notifier console of the Eclipse instance 
+		 * that has the Job-Notifier plugin installed
+		 */
+		this.out = job_notifier.Activator.myConsole.newMessageStream();
+		this.out.println("Started job: " + jobName);
 	}
 
 	@Override
@@ -27,9 +43,22 @@ public class JobNotifier implements IJobChangeListener {
 
 	@Override
 	public void done(IJobChangeEvent event) {
-		// TODO Auto-generated method stub
+
+		/* Debug start */
+		/*
+		 * Write to the main console of the development environment 
+		 * (not the console of the launched application)
+		 */
 		String jobName = event.getJob().getName();
 		System.out.println("Finished job: " + jobName);
+		/* Debug end */
+
+		/*
+		 * Write to the Job-Notifier console of the Eclipse instance 
+		 * that has the Job-Notifier plugin installed
+		 */
+		this.out = job_notifier.Activator.myConsole.newMessageStream();
+		this.out.println("Finished job: " + jobName);
 	}
 
 	@Override
@@ -49,5 +78,4 @@ public class JobNotifier implements IJobChangeListener {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
