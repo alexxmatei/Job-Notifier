@@ -2,12 +2,18 @@ package job_notifier;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+import org.eclipse.core.runtime.jobs.IJobChangeListener;
+import org.eclipse.core.runtime.jobs.Job;
+import job_notifier.handlers.JobNotifier;
+
 
 /**
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends AbstractUIPlugin {
-
+	
+	private IJobChangeListener myJobListener;
+	
 	// The plug-in ID
 	public static final String PLUGIN_ID = "Job-Notifier"; //$NON-NLS-1$
 
@@ -24,10 +30,18 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		this.myJobListener = new JobNotifier();
+
+		Job.getJobManager().addJobChangeListener(this.myJobListener);
 	}
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
+		if (this.myJobListener != null) {
+			Job.getJobManager().removeJobChangeListener(this.myJobListener);
+		}
+		
 		plugin = null;
 		super.stop(context);
 	}
