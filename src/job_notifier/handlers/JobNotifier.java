@@ -5,6 +5,7 @@ package job_notifier.handlers;
 
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * @author Al
@@ -14,9 +15,12 @@ public class JobNotifier implements IJobChangeListener {
 
 	@Override
 	public void aboutToRun(IJobChangeEvent event) {
-		// TODO Auto-generated method stub
 		String jobName = event.getJob().getName();
 		System.out.println("Started job: " + jobName);
+		if ( jobName.contains("Launching") && jobName.contains("test" ) )
+		{
+			new Display().beep();
+		}
 	}
 
 	@Override
@@ -27,9 +31,12 @@ public class JobNotifier implements IJobChangeListener {
 
 	@Override
 	public void done(IJobChangeEvent event) {
-		// TODO Auto-generated method stub
 		String jobName = event.getJob().getName();
 		System.out.println("Finished job: " + jobName);
+		if ( jobName.contains("Launching") && jobName.contains("test" ) )
+		{
+			new Display().beep();
+		}
 	}
 
 	@Override
