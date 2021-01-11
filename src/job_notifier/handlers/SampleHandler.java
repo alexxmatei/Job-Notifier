@@ -14,7 +14,7 @@ public class SampleHandler extends AbstractHandler {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
-				"Template",
+				"job_notifier_audio_branch",
 				"Hello, Eclipse world");
 		return null;
 	}

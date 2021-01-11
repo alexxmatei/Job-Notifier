@@ -5,7 +5,7 @@ package job_notifier.handlers;
 
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.internal.win32.OS;
 
 /**
  * @author Al
@@ -19,7 +19,7 @@ public class JobNotifier implements IJobChangeListener {
 		System.out.println("Started job: " + jobName);
 		if ( jobName.contains("Launching") && jobName.contains("test" ) )
 		{
-			new Display().beep();
+			OS.MessageBeep(OS.MB_OK);
 		}
 	}
 
@@ -35,7 +35,7 @@ public class JobNotifier implements IJobChangeListener {
 		System.out.println("Finished job: " + jobName);
 		if ( jobName.contains("Launching") && jobName.contains("test" ) )
 		{
-			new Display().beep();
+			OS.MessageBeep(OS.MB_OK);
 		}
 	}
 
