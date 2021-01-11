@@ -6,6 +6,7 @@ package job_notifier.handlers;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.swt.internal.win32.OS;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author Al
@@ -17,7 +18,8 @@ public class JobNotifier implements IJobChangeListener {
 	public void aboutToRun(IJobChangeEvent event) {
 		String jobName = event.getJob().getName();
 		System.out.println("Started job: " + jobName);
-		if ( jobName.contains("Launching") && jobName.contains("test" ) )
+		if ( StringUtils.containsIgnoreCase(jobName, "launching") && 
+		     StringUtils.containsIgnoreCase(jobName, "test")         )
 		{
 			OS.MessageBeep(OS.MB_OK);
 		}
@@ -33,7 +35,8 @@ public class JobNotifier implements IJobChangeListener {
 	public void done(IJobChangeEvent event) {
 		String jobName = event.getJob().getName();
 		System.out.println("Finished job: " + jobName);
-		if ( jobName.contains("Launching") && jobName.contains("test" ) )
+		if ( StringUtils.containsIgnoreCase(jobName, "launching") && 
+		     StringUtils.containsIgnoreCase(jobName, "test")         )
 		{
 			OS.MessageBeep(OS.MB_OK);
 		}
